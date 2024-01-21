@@ -90,5 +90,34 @@ function reduceAndAVG(peoplearray){
 // For each of the functions above, if the object does not yet contain an age field, create one and set it to 0. Also, add (or modify, as appropriate) an updated_at field that stores a Date object with the current time.
 
 function increaseAge(personObj){
-    
+    if(personObj.age == undefined){
+        personObj.age = "0";
+        personObj.updated_at = new Date()
+    } else {
+        personObj.age = String(Number(personObj.age) + 1)
+        personObj.updated_at = new Date()
+    }
+    console.log(personObj)
 }
+
+function copyAndIncrease(personObj){
+    console.log("I am the original " + JSON.stringify(personObj))
+    let clone = {
+        id: "",
+        name: "",
+        occupation: "",
+        age: ""
+    }
+    clone.id = personObj.id
+    clone.name = personObj.name
+    clone.occupation = personObj.occupation
+    if(personObj.age == undefined){
+        personObj.age ="0"
+    }
+    clone.age = String(Number(personObj.age ) + 1)
+    clone.updated_at = new Date()
+    console.log("I am the clone!! " + JSON.stringify(clone))
+    return clone
+}
+
+copyAndIncrease({ id: "7", name: "Bilbo", occupation: "None", age: "111" })
