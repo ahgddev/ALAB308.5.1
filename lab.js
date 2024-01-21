@@ -67,8 +67,21 @@ function jobChangeAgeIncrease(peoplearray){
         job: occupation,
         age: String(Number(age) + 1)
     }))
-    console.log(peopleMap)
     return peopleMap
 }
 
-jobChangeAgeIncrease(peopleData)
+// Use the reduce method to calculate the sum of the ages.
+// Then use the result to calculate the average age.
+function reduceAndAVG(peoplearray){
+    let ageArray = []
+    for(person of peoplearray){
+        ageArray.unshift(Number(person.age))
+    }
+    let sumNum = ageArray.reduce((num,num1) => {
+        return num + num1
+    })
+    let sumAndAverage = [sumNum, sumNum/ageArray.length]
+    console.log(sumAndAverage)
+    return sumAndAverage
+}
+reduceAndAVG(peopleData)
