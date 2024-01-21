@@ -61,15 +61,14 @@ function filter50YearOlds(peoplearray){
 
 // Map the array to change the “occupation” key to “job” and increment every age by 1.
 function jobChangeAgeIncrease(peoplearray){
-   let changedArray = peoplearray.map((person) => {
-    Object.defineProperty(person, "job",
-	    Object.getOwnPropertyDescriptor(person, "occupation"));
-	delete person["occupation"];
-    person.age = String(Number(person.age) + 1);
-    return person
-   });
-   console.log(changedArray)
-    return changedArray
+    let peopleMap = peoplearray.map(({id, name, occupation, age}) => ({
+        id: id,
+        name: name,
+        job: occupation,
+        age: String(Number(age) + 1)
+    }))
+    console.log(peopleMap)
+    return peopleMap
 }
 
 jobChangeAgeIncrease(peopleData)
