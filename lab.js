@@ -3,6 +3,7 @@
 let nums = [1,2,3,5,7,10,13,14]
 let strs = ["hello","goodbye","good morning","good night","good evening","everyone"]
 let longerstrs = [["mew","miao","woof","arfarf","bark bark","warf","arf?arf?arf"],5]
+let peopleData = [{ id: "42", name: "Bruce", occupation: "Knight", age: "41" }, { id: "48", name: "Barry", occupation: "Runner", age: "25" }, { id: "57", name: "Bob", occupation: "Fry Cook", age: "19" }, { id: "63", name: "Blaine", occupation: "Quiz Master", age: "58" }, { id: "7", name: "Bilbo", occupation: "None", age: "111" }]
 
 function addAll(anarray){
     let sum = 0
@@ -47,4 +48,28 @@ function oneToNumber(anumber) {
     }
 }
 
-oneToNumber(10)
+// Part 2: Thinking Methodically
+// Sort the array by age.
+function sortByAge(peoplearray) {
+    return peoplearray.sort(function(ageOne, ageTwo){return ageOne.age - ageTwo.age})
+}
+
+// Filter the array to remove entries with an age greater than 50.
+function filter50YearOlds(peoplearray){
+    return peoplearray.filter((person) => person.age < 50)
+}
+
+// Map the array to change the “occupation” key to “job” and increment every age by 1.
+function jobChangeAgeIncrease(peoplearray){
+   let changedArray = peoplearray.map((person) => {
+    Object.defineProperty(person, "job",
+	    Object.getOwnPropertyDescriptor(person, "occupation"));
+	delete person["occupation"];
+    person.age = String(Number(person.age) + 1);
+    return person
+   });
+   console.log(changedArray)
+    return changedArray
+}
+
+jobChangeAgeIncrease(peopleData)
