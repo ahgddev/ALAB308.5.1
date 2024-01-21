@@ -81,7 +81,14 @@ function reduceAndAVG(peoplearray){
         return num + num1
     })
     let sumAndAverage = [sumNum, sumNum/ageArray.length]
-    console.log(sumAndAverage)
     return sumAndAverage
 }
-reduceAndAVG(peopleData)
+
+// Part 3: Thinking Critically
+// Take an object and increment its age field.
+// Take an object, make a copy, and increment the age field of the copy. Return the copy.
+// For each of the functions above, if the object does not yet contain an age field, create one and set it to 0. Also, add (or modify, as appropriate) an updated_at field that stores a Date object with the current time.
+
+function increaseAge(personObj){
+    
+}
