@@ -2,6 +2,7 @@
 //Take an array of numbers and return the sum
 let nums = [1,2,3,5,7,10,13,14]
 let strs = ["hello","goodbye","good morning","good night","good evening","everyone"]
+let longerstrs = [["mew","miao","woof","arfarf","bark bark","warf","arf?arf?arf"],5]
 
 function addAll(anarray){
     let sum = 0
@@ -28,4 +29,22 @@ function longestStr(anarray) {
     return longWords
 }
 
-longestStr(strs)
+// Take an array of strings, and a number and return an array of the strings that are longer than the given number. 
+function findLongStrings(anarray){
+    let minLength = anarray[1]
+    let words = anarray[0]
+    let longerWords = words.filter((word) => word.length > minLength)
+    return longerWords
+}
+
+// Take a number, n, and print every number between 1 and n without using loops.
+function oneToNumber(anumber) {
+    console.log(anumber)
+    let decreaseNum = anumber - 1
+    
+    if (decreaseNum > 0) {
+        oneToNumber(decreaseNum);
+    }
+}
+
+oneToNumber(10)
